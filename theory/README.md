@@ -73,6 +73,9 @@ both `antelope` and `antelopes`.)
     bold sequence need only accept `1` (and is a trivial regex). (ESC is
     a single character which can be represented with `\e` in the regex.)
 
+  * regex: \e\[[0-9]{2};?[0-9]{2}f
+  * regex: \e\[1m
+
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
 
