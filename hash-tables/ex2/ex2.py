@@ -1,20 +1,17 @@
 def reconstruct_trip(tickets):
   tix = {}
-  route = []
-  next_ticket = []
-  for i in tickets:
-    src = i[0]
-    dest = i[1]
-    tix.update({src: dest})
-  current_ticket = tix[None]
-  for j in tix:
-    if tix[j] == current_ticket:
-      next_ticket = j
-  while current_ticket != None:
-    route.append(current_ticket)
-    current_ticket = next_ticket
-  print(route)
+  route = ['']* (len(tickets)-1)
+  for ticket in tickets:
+    tix[ticket[0]] = ticket[1]
+    if ticket[0] is None:
+      route[0] = ticket[1]
+  for i in range(1, len(route)):
+    if route[i-1] in tix:
+      route[i] = tix[route[i-1]]
+    else:
+      return []
   return route
+
 
 tickets = [
   ('PIT', 'ORD'),
